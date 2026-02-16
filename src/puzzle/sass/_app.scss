@@ -10,13 +10,13 @@ header {
   box-sizing: border-box;
   background-color: vari.$navy;
 
-    > ul {
+    & > ul {
       display: flex;
       width: max-content;
       background-color: vari.$white;
       padding: 10px;
 
-      > li {
+      & > li {
         margin-right: 10px;
         height: 40px;
         width: 40px;
@@ -48,10 +48,10 @@ header {
   box-sizing: border-box;
   background-color: vari.$red;
 
-  > ul {
+  & > ul {
     width: max-content;
 
-    > li {
+    & > li {
       margin-bottom: 10px;
       border: 5px solid vari.$white;
       height: 40px;
