@@ -1,6 +1,11 @@
+@use 'variable' as var;
+
+$maxWidth: 1000px;
+$brandColor: #cd6799;
+
 .inner {
   width: 100%;
-  max-width: 1000px;
+  max-width: $maxWidth;
   margin: 0 auto;
   padding: 0 10px;
 }
@@ -12,3 +17,85 @@
 }
 
 /* ↓ここに処理を書く↓ */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1000px;
+  margin: 0 auto;
+  padding: 10px 0;
+
+  h1 {
+    text-align: left;
+  }
+
+  &__logo {
+    width: 80px;
+  }
+
+  &__list {
+    display: flex;
+
+    &>li {
+      margin-left: 30px;
+
+      /* 擬似クラスもこのように書く事が可能 */
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    &__link {
+      text-decoration: none;
+      color: var.$color-text;
+
+      font: {
+        size: 16px;
+        weight: bold;
+      }
+
+      &:hover {
+        color: $brandColor;
+      }
+    }
+  }
+}
+
+@mixin btn($color) {
+  display: block;
+  padding: 20px 30px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: $color;
+  text: {
+    decoration: none;
+    align: center;
+  }
+}
+
+.footer {
+  padding: 70px 0;
+
+  &__sns {
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      & > li {
+        width: 32%;
+
+        &:nth-child(n+4) {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &__btn {
+      &.is-facebook {
+        @include btn(#4668b3);
+      }
+    }
+  }
+}
