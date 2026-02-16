@@ -1,0 +1,10 @@
+@use 'variable' as vari;
+
+@mixin color_box() {
+  @each $i in vari.$classNames {
+    $index_key: index(vari.$classNames, $i); // indexの取得
+    &.#{nth(vari.$classNames, $index_key)} {
+        background-color: nth(vari.$buttonColor, $index_key);
+    }
+  }
+}
